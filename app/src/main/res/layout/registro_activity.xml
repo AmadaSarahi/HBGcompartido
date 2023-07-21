@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
+    android:background="#FDF5D0"
     tools:context=".RegistroActivity">
 
     <LinearLayout
@@ -46,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre de usuario"
-                android:inputType="textPassword"/>
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
