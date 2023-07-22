@@ -1,5 +1,6 @@
 package com.example.hbg;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,13 +57,17 @@ public class RegistroActivity extends AppCompatActivity {
             txtRegistroPass.requestFocus();
         }else{
             mAuth.createUserWithEmailAndPassword(correo, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_LONG).show();
+                        Snackbar.make(RegistroActivity.this.getCurrentFocus(), "Registro exitoso", Snackbar.LENGTH_LONG).show();
+
+                        //Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
                     }else{
-                        Toast.makeText(RegistroActivity.this, "Error al registrar usuario: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        Snackbar.make(RegistroActivity.this.getCurrentFocus(), "Error al registrar usuario", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(RegistroActivity.this, "Error al registrar usuario: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             });

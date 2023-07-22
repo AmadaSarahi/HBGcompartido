@@ -49,7 +49,11 @@
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:hint="Nombre de usuario"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +78,11 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFFFFF"
                 android:hint="Correo"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +107,11 @@
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:hint="Contraseña"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
