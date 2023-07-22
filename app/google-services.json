@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278978535419",
+    "project_id": "happyblindglish-e196c",
+    "storage_bucket": "happyblindglish-e196c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278978535419:android:9916d94f96eb091472f55e",
+        "android_client_info": {
+          "package_name": "com.example.hbg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278978535419-p319pt2j83lbpichbnkueu3aosq5lluj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANO9Qrr7cIymL9e0bA3NSCwNMAMpRWFpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278978535419-p319pt2j83lbpichbnkueu3aosq5lluj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
