@@ -24,8 +24,8 @@
             android:text="REGISTRATE!"
             android:textSize="34sp"
             android:textAlignment="center"
-            android:textColor="#00027F"
             android:textStyle="bold"
+            android:textColor="#00027F"
             android:gravity="center_horizontal" />
 
         <TextView
@@ -136,7 +136,7 @@
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:backgroundTint="#E91E63" />
+            app:backgroundTint="#ff7c00" />
 
 
 

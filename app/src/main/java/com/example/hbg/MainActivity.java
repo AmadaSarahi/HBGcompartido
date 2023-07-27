@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnLogOut;
+
+    Button btnLogOut, btnUser;
     FirebaseAuth mAuth;
 
     @Override
@@ -19,11 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnLogOut = findViewById(R.id.btnLogOut);
+        btnUser = findViewById(R.id.btnUser);
         mAuth = FirebaseAuth.getInstance();
 
         btnLogOut.setOnClickListener(view -> {
             mAuth.signOut();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        });
+        btnUser.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, UserActivity.class));
         });
     }
 
@@ -35,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
+
 }

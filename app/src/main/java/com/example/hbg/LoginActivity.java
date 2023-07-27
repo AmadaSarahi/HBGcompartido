@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity{
+    private boolean backPressedOnce = false;
     TextInputEditText txtLoginCorreo, txtLoginPass;
     Button btnEntrar, btnRegistro;
 
@@ -68,4 +70,22 @@ public class LoginActivity extends AppCompatActivity{
            });
        }
     }
+    //salir después de presionar dos veces
+    @Override
+    public void onBackPressed(){
+        if(backPressedOnce){
+            super.onBackPressed();
+            return;
+        }
+        Snackbar.make(LoginActivity.this.getCurrentFocus(), "Presiona otra vez para salir", Snackbar.LENGTH_LONG).show();
+        backPressedOnce = true;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPressedOnce = false;
+            }
+        }, 2000);
+    }
+
+
 }

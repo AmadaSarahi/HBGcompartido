@@ -5,44 +5,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+
     android:background="#FDF5D0"
     tools:context=".MainActivity">
 
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUser"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Mi perfil"
+            app:icon="@drawable/ic_user"
+            app:iconSize="60dp"
+            app:iconTint="@color/black" />
+
+        <TextView
+            android:id="@+id/txtV_HBG"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="HBG"
+            android:textAlignment="center"
+            android:textColor="#9c27b0"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Mi perfil"
+            app:icon="@drawable/ic_settings"
+            app:iconSize="60dp"
+            app:iconTint="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNiveles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginTop="24dp"
+            android:text="NIVELES"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FF7C00" />
 
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bienvenido! :)"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="RETOS"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009641" />
 
-            <Button
-                android:id="@+id/btnLogOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Salir"
-                app:backgroundTint="#E91E63"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAprender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="APRENDER"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#E91E63"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProgrseo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="PROGRESO"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#673ab7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Salir"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FF0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
