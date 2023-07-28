@@ -11,7 +11,7 @@
     tools:context=".UserActivity">
 
     <TextView
-        android:id="@+id/txtV_USER"
+        android:id="@+id/txtUSER"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -26,14 +26,35 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgViewUser"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="Mi foto"
+            android:layout_gravity="center"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:strokeColor="@color/black"
+            app:strokeWidth="4dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImg"
             android:layout_width="match_parent"
-            android:layout_height="274dp"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="CAMBIAR FOTO"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="#3f51b5" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="36dp" />
 
         <TextView
-            android:id="@+id/txtV_UserName"
+            android:id="@+id/txtVUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre"
