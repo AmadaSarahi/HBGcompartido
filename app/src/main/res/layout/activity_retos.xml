@@ -7,7 +7,7 @@
     android:orientation="vertical"
 
     android:background="#FDF5D0"
-    tools:context=".NivelActivity">
+    tools:context=".RetosActivity">
 
 
     <LinearLayout
@@ -16,11 +16,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txtV_Niveles"
+            android:id="@+id/txtV_Retos"
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="NIVELES"
+            android:text="RETOS"
             android:textAlignment="center"
             android:textColor="#9c27b0"
             android:textSize="40sp"
@@ -30,48 +30,77 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:gravity="center"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPrincipiante"
+        <TextView
+            android:id="@+id/txtV_10p"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="PRINCIPIANTE"
+            android:text="10 palabras al día"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBasico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BASICO"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:backgroundTint="#BF068E" />
+            app:backgroundTint="#16b89d" />
+
+        <TextView
+            android:id="@+id/txtV_20p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="20 palabras al día"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnIntermedio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="INTERMEDIO"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:backgroundTint="#9C27B0" />
+            app:backgroundTint="#009688" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnExperto"
+        <TextView
+            android:id="@+id/txtV_30p"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="EXPERTO"
+            android:text="30 palabras al día"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="15dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAvanzado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AVANZADO"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:backgroundTint="#3F51B5"/>
+            app:backgroundTint="#009641"/>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="200dp"
             android:gravity="center"
             android:orientation="vertical">
 
