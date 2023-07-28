@@ -14,19 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HBG"
         tools:targetApi="31" >
+
         <activity
             android:name=".UserActivity"
             android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".RegistroActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait" >
             <intent-filter>
