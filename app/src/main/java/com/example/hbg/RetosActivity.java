@@ -20,8 +20,6 @@ public class RetosActivity extends AppCompatActivity{
         btnAvanzado = findViewById(R.id.btnAvanzado);
         btnRegresar = findViewById(R.id.btnRegresar);
 
-
-
         btnRegresar.setOnClickListener(view -> {
             startActivity(new Intent(RetosActivity.this, MainActivity.class));
         });

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:background="#FDF5D0"
     tools:context=".NivelActivity">
 
@@ -84,7 +83,6 @@
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:backgroundTint="#ff7c00" />
-
         </LinearLayout>
 
 

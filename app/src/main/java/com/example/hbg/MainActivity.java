@@ -44,12 +44,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         btnUser.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, UserActivity.class));
         });
+
         btnNiveles.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, NivelActivity.class));
         });
+
         btnRetos.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, RetosActivity.class));
         });

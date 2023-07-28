@@ -20,8 +20,6 @@ public class NivelActivity extends AppCompatActivity{
         btnExperto = findViewById(R.id.btnExperto);
         btnRegresar = findViewById(R.id.btnRegresar);
 
-
-
         btnRegresar.setOnClickListener(view -> {
             startActivity(new Intent(NivelActivity.this, MainActivity.class));
         });
