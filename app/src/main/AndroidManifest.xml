@@ -17,7 +17,16 @@
 
         <activity
             android:name=".UserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RetosActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NivelActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegistroActivity"
             android:exported="false"

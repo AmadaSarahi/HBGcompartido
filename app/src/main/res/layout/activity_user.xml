@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:padding="5dp"
     android:orientation="vertical"
 
     android:background="#FDF5D0"
@@ -32,22 +32,41 @@
             android:layout_height="200dp"
             android:contentDescription="Mi foto"
             android:layout_gravity="center"
-            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:src="@drawable/ic_camera"
             android:scaleType="centerCrop"
             app:shapeAppearanceOverlay="@style/roundedImageView"
             app:strokeColor="@color/black"
             app:strokeWidth="4dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnImg"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="CAMBIAR FOTO"
-            android:textColor="#FFFFFF"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:backgroundTint="#3f51b5" />
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelImg"
+                android:layout_width="171dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="CAMBIAR FOTO"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:backgroundTint="#3f51b5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:text="GUARDAR"
+                android:contentDescription="Guardar foto"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:backgroundTint="#6ea131" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
@@ -57,10 +76,15 @@
             android:id="@+id/txtVUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="Nombre"
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogOut"

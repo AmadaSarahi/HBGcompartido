@@ -54,7 +54,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     private void createUser(String usuario, String correo, String pass){
-
+        String imgUser = "https://firebasestorage.googleapis.com/v0/b/happyblindglish-e196c.appspot.com/o/images%2FDEFAULT-DONT-DELETE.png?alt=media&token=7d90688c-561b-4490-9d62-e3050ff942b9";
 
         if(TextUtils.isEmpty(usuario)){
             txtRegistroUser.setError("Se necesita un nombre de usuario");
@@ -76,6 +76,7 @@ public class RegistroActivity extends AppCompatActivity {
                         map.put("usuario", usuario);
                         map.put("email", correo);
                         map.put("password", pass);
+                        map.put("imgUsuario", imgUser);
 
                         mFirestore.collection("users").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
