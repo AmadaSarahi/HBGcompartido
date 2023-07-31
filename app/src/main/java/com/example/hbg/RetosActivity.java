@@ -20,6 +20,20 @@ public class RetosActivity extends AppCompatActivity{
         btnAvanzado = findViewById(R.id.btnAvanzado);
         btnRegresar = findViewById(R.id.btnRegresar);
 
+
+        btnBasico.setOnClickListener(view -> {
+            startActivity(new Intent(RetosActivity.this, RetosJuegoActivity.class));
+        });
+
+        btnIntermedio.setOnClickListener(view -> {
+            startActivity(new Intent(RetosActivity.this, RetosJuegoActivity.class));
+        });
+
+        btnAvanzado.setOnClickListener(view -> {
+            startActivity(new Intent(RetosActivity.this, RetosJuegoActivity.class));
+        });
+
+
         btnRegresar.setOnClickListener(view -> {
             startActivity(new Intent(RetosActivity.this, MainActivity.class));
         });

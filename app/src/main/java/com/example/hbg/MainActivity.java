@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogOut, btnUser, btnNiveles, btnRetos;
+    Button btnLogOut, btnUser, btnSettings, btnNiveles, btnRetos;
     FirebaseAuth mAuth;
 
     @Override
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogOut = findViewById(R.id.btnLogOut);
         btnUser = findViewById(R.id.btnUser);
         mAuth = FirebaseAuth.getInstance();
+        btnSettings = findViewById(R.id.btnSettings);
         btnNiveles = findViewById(R.id.btnNiveles);
         btnRetos = findViewById(R.id.btnRetos);
 
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         btnUser.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, UserActivity.class));
+        });
+
+        btnSettings.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, ConfiguracionActivity.class));
         });
 
         btnNiveles.setOnClickListener(view -> {
