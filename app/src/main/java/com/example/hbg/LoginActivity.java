@@ -59,12 +59,10 @@ public class LoginActivity extends AppCompatActivity{
                @Override
                public void onComplete(@NonNull Task<AuthResult> task) {
                    if(task.isSuccessful()){
-                       Snackbar.make(LoginActivity.this.getCurrentFocus(), "Bienvenido", Snackbar.LENGTH_LONG).show();
-                       //Toast.makeText(LoginActivity.this,"Bienvenido", Toast.LENGTH_LONG).show();
+                           Toast.makeText(LoginActivity.this,"Bienvenido", Toast.LENGTH_SHORT).show();
                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                   }else{
-                       Snackbar.make(LoginActivity.this.getCurrentFocus(), "Error al iniciar sesión", Snackbar.LENGTH_LONG).show();
-                       //Toast.makeText(LoginActivity.this, "Error al iniciar sesión: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                       }else{
+                            Toast.makeText(LoginActivity.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
                    }
                }
            });
@@ -77,7 +75,7 @@ public class LoginActivity extends AppCompatActivity{
             super.onBackPressed();
             return;
         }
-        Snackbar.make(LoginActivity.this.getCurrentFocus(), "Presiona otra vez para salir", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(LoginActivity.this.getCurrentFocus(), "Presiona otra vez para salir", Snackbar.LENGTH_SHORT).show();
         backPressedOnce = true;
         new Handler().postDelayed(new Runnable() {
             @Override

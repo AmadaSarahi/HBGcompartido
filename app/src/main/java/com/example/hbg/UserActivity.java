@@ -1,14 +1,13 @@
 package com.example.hbg;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -22,22 +21,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.firestore.auth.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +40,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class UserActivity extends AppCompatActivity {
+    private ProgressDialog mDialog;
     Button btnLogOut, btnRegresar, btnSelImg, btnSave;
     TextView txtVUserName;
     ImageView imgViewUser;
@@ -61,12 +55,14 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        mDialog = new ProgressDialog(this);
 
         btnLogOut = findViewById(R.id.btnLogOut);
         btnRegresar = findViewById(R.id.btnRegresar);
         btnSelImg = findViewById(R.id.btnSelImg);
         btnSave = findViewById(R.id.btnSave);
-        txtVUserName = findViewById(R.id.txtVUserName);
+        btnSave.setEnabled(false);
+        txtVUserName = findViewById(R.id.txtVEmail);
         imgViewUser = findViewById(R.id.imgViewUser);
 
         mAuth = FirebaseAuth.getInstance();
@@ -80,14 +76,20 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
+                btnSave.setEnabled(true);
             }
         });
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                actualizarImg();
-            }
-        });
+        if(btnSave.isEnabled() == false && btnSave.isHovered() == true && btnSave.isFocused() == true){
+            Toast.makeText(UserActivity.this, "Primero selecciona una imagen", Toast.LENGTH_SHORT).show();
+        }else{
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    actualizarImg();
+                    btnSave.setEnabled(false);
+                }
+            });
+        }
 
         //Recupera la información de Firebase
         DocumentReference documentReference = mFirebaseFirestore.collection("users").document(id);
@@ -106,15 +108,22 @@ public class UserActivity extends AppCompatActivity {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences prefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("password","");
-                editor.commit();
-
-                mAuth.signOut();
-                Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserActivity.this);
+                builder.setTitle("Cerrar sesión");
+                builder.setMessage("¿Seguro que quieres cerrar sesión?")
+                                .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(UserActivity.this, "¡Hasta luego!", Toast.LENGTH_LONG).show();
+                                        cerrarSesion();
+                                    }
+                                }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(UserActivity.this, "Cancelando...", Toast.LENGTH_SHORT).show();
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
             }
         });
 
@@ -144,9 +153,9 @@ public class UserActivity extends AppCompatActivity {
 
     private void actualizarImg(){
         //Muestra el progreso de guardado
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Actualizando...");
-        progressDialog.show();
+        mDialog.setMessage("Actualizando...");
+        mDialog.setCanceledOnTouchOutside(false);
+        mDialog.show();
         //almacena la imagen en firebase storage
         mFirebaseStorage.getReference("images/"+ UUID.randomUUID().toString()).putFile(imgUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -162,13 +171,7 @@ public class UserActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(UserActivity.this, "Algo salió mal", Toast.LENGTH_LONG).show();
                 }
-                progressDialog.dismiss();
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                double progreso = 100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount();
-                progressDialog.setMessage("Actualizando " + (int) progreso + "%");
+                mDialog.dismiss();
             }
         });
     }
@@ -176,7 +179,17 @@ public class UserActivity extends AppCompatActivity {
         Map<String, Object> map = new HashMap<>();
         map.put("imgUsuario", url);
         mFirebaseFirestore.collection("users").document(id).set(map, SetOptions.merge());
+    }
+    private void cerrarSesion(){
+        SharedPreferences prefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("password","");
+        editor.commit();
 
+        mAuth.signOut();
+        Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }

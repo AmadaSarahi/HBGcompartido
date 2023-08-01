@@ -81,18 +81,18 @@ public class RegistroActivity extends AppCompatActivity {
                         mFirestore.collection("users").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Snackbar.make(RegistroActivity.this.getCurrentFocus(), "Registro exitoso", Snackbar.LENGTH_LONG).show();
+                                Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(RegistroActivity.this.getCurrentFocus(), "Error al guardar usuario", Snackbar.LENGTH_LONG).show();
+                                Toast.makeText(RegistroActivity.this, "Error al guardar usuario", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                     }else{
-                        Snackbar.make(RegistroActivity.this.getCurrentFocus(), "Error al registrar usuario", Snackbar.LENGTH_LONG).show();
+                        Toast.makeText(RegistroActivity.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

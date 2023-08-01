@@ -52,12 +52,20 @@
         <Switch
             android:id="@+id/SNotificaciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="50dp"
             android:text="Notificaciones"
             android:textColor="#000000"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginTop="50dp" />
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:visibility="invisible" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCambContra"
@@ -67,15 +75,17 @@
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:backgroundTint="#673ab7"
-            android:layout_marginTop="50dp" />
+            app:backgroundTint="#673ab7" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="102dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:gravity="center"
         android:orientation="vertical">
 
