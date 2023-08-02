@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FDF5D0"
-    android:padding="30dp"
+    android:padding="15dp"
     tools:context=".ConfiguracionActivity">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CONFIGURACION"
+            android:text="CONFIGURACIÓN"
             android:textAlignment="center"
             android:textColor="#9c27b0"
             android:textSize="36sp"
