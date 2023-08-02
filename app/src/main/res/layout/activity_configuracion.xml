@@ -22,7 +22,7 @@
             android:text="CONFIGURACION"
             android:textAlignment="center"
             android:textColor="#9c27b0"
-            android:textSize="40sp"
+            android:textSize="36sp"
             android:textStyle="bold" />
     </LinearLayout>
 
