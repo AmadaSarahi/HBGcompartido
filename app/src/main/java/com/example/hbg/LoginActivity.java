@@ -84,6 +84,4 @@ public class LoginActivity extends AppCompatActivity{
             }
         }, 2000);
     }
-
-
 }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 public class RetosJuegoActivity extends AppCompatActivity{
-
     Button  btnRegresar;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +19,4 @@ public class RetosJuegoActivity extends AppCompatActivity{
             startActivity(new Intent(RetosJuegoActivity.this, RetosActivity.class));
         });
     }
-
 }

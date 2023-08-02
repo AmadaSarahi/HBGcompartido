@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-
 public class RetosActivity extends AppCompatActivity{
-
     Button btnBasico, btnIntermedio, btnAvanzado, btnRegresar;
 
     @Override
@@ -19,7 +17,6 @@ public class RetosActivity extends AppCompatActivity{
         btnIntermedio = findViewById(R.id.btnIntermedio);
         btnAvanzado = findViewById(R.id.btnAvanzado);
         btnRegresar = findViewById(R.id.btnRegresar);
-
 
         btnBasico.setOnClickListener(view -> {
             startActivity(new Intent(RetosActivity.this, RetosJuegoActivity.class));
@@ -38,5 +35,4 @@ public class RetosActivity extends AppCompatActivity{
             startActivity(new Intent(RetosActivity.this, MainActivity.class));
         });
     }
-
 }

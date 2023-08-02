@@ -4,29 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.app.*;
+import android.content.*;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.squareup.picasso.Picasso;
+import com.google.firebase.firestore.*;
 
 public class ConfiguracionActivity extends AppCompatActivity {
     private String email = "";
@@ -38,7 +26,6 @@ public class ConfiguracionActivity extends AppCompatActivity {
     String id;
     FirebaseAuth mAuth;
     FirebaseFirestore mFirebaseFirestore;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +52,6 @@ public class ConfiguracionActivity extends AppCompatActivity {
 
             }
         });
-
         btnRegresar.setOnClickListener(view -> {
             startActivity(new Intent(ConfiguracionActivity.this, MainActivity.class));
         });
@@ -109,5 +95,4 @@ public class ConfiguracionActivity extends AppCompatActivity {
             }
         });
     }
-
 }

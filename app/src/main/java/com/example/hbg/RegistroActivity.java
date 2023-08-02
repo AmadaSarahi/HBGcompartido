@@ -1,6 +1,5 @@
 package com.example.hbg;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,7 +13,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,7 +50,6 @@ public class RegistroActivity extends AppCompatActivity {
             startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
         });
     }
-
     private void createUser(String usuario, String correo, String pass){
         String imgUser = "https://firebasestorage.googleapis.com/v0/b/happyblindglish-e196c.appspot.com/o/images%2FDEFAULT-DONT-DELETE.png?alt=media&token=7d90688c-561b-4490-9d62-e3050ff942b9";
 
@@ -75,7 +72,6 @@ public class RegistroActivity extends AppCompatActivity {
                         map.put("id", id);
                         map.put("usuario", usuario);
                         map.put("email", correo);
-                        map.put("password", pass);
                         map.put("imgUsuario", imgUser);
 
                         mFirestore.collection("users").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -90,15 +86,11 @@ public class RegistroActivity extends AppCompatActivity {
                                 Toast.makeText(RegistroActivity.this, "Error al guardar usuario", Toast.LENGTH_SHORT).show();
                             }
                         });
-
                     }else{
                         Toast.makeText(RegistroActivity.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
-
-
         }
     }
-
 }
